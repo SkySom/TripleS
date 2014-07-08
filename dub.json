@@ -1,0 +1,8 @@
+{
+	"name": "triples",
+	"description": "A minimal D application.",
+	"copyright": "Copyright © 2014, Skylar",
+	"authors": ["Skylar"],
+	"dependencies": {
+	}
+}
