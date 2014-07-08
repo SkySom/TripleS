@@ -1,6 +1,7 @@
 import std.stdio;
+import triples.bot;
 
 void main()
 {
-	writeln("Edit source/app.d to start your project.");
+	auto triples = new TripleS();
 }
