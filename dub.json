@@ -4,6 +4,7 @@
 	"copyright": "Copyright © 2014, Skylar",
 	"authors": ["Skylar"],
 	"dependencies": {
-		"dirk": "~master"
+		"dirk": "~master",
+		"onyx-config": ">=1.0.0-beta.2"
 	}
 }
