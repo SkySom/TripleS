@@ -1,14 +1,21 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{A78F9855-C2EC-44C3-BA6B-3BC56FBEAAE8}") = "triples", "triples.visualdproj", "{838F4AE2-63AA-4F1B-9526-946799E7AFD0}"
+Project("{9FC1486A-20BD-4D9D-B7B6-C52CEE44C4F4}") = "triples", "triples.visualdproj", "{20AA5CAB-AD8E-4F67-B675-3A89083D3A15}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F73A17E7-531F-47D8-BA57-3C31D3B6E65B} = {F73A17E7-531F-47D8-BA57-3C31D3B6E65B}
+	EndProjectSection
+EndProject
+Project("{9FC1486A-20BD-4D9D-B7B6-C52CEE44C4F4}") = "dirk", "dirk.visualdproj", "{F73A17E7-531F-47D8-BA57-3C31D3B6E65B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		debug|Win32 = debug|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{838F4AE2-63AA-4F1B-9526-946799E7AFD0}.debug|Win32.ActiveCfg = debug|Win32
-		{838F4AE2-63AA-4F1B-9526-946799E7AFD0}.debug|Win32.Build.0 = debug|Win32
+		{20AA5CAB-AD8E-4F67-B675-3A89083D3A15}.debug|Win32.ActiveCfg = debug|Win32
+		{20AA5CAB-AD8E-4F67-B675-3A89083D3A15}.debug|Win32.Build.0 = debug|Win32
+		{F73A17E7-531F-47D8-BA57-3C31D3B6E65B}.debug|Win32.ActiveCfg = debug|Win32
+		{F73A17E7-531F-47D8-BA57-3C31D3B6E65B}.debug|Win32.Build.0 = debug|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
