@@ -1,6 +1,4 @@
 {
-  "connection" : {
-    "port" : "0000",
-    "ip" : "irc.com"
-  }
+  "port" : "0000",
+  "address" : "irc.com"
 }
