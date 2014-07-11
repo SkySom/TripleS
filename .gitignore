@@ -4,14 +4,9 @@
 *.dll
 .*.sw*
 *.exe
-/docs/index.html
-/docs/sitemap.xml
-/docs/vibe
-/docs/images
-/docs/prettify
-/docs/scripts
-/docs/styles
 
 .dub
 dub.selections.json
 *.exe_cv
+
+config/*.json

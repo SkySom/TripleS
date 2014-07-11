@@ -1,0 +1,6 @@
+{
+  "connection" : {
+    "port" : "0000",
+    "ip" : "irc.com"
+  }
+}
