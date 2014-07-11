@@ -5,6 +5,7 @@ import std.stdio;
 import std.socket;
 
 import irc.client;
+import irc.tracker;
 import irc.eventloop;
 
 import triples.configClasses.connectionConfig;
@@ -14,19 +15,18 @@ class TripleS {
   ConnectionConfig connectConf;
   BotConfig botConf;
 
+  IrcClient client;
+  IrcTracker tracker;
+
   this() {
-    writeln("Starting");
-    auto client = new IrcClient();
-
+    client = new IrcClient();
     connectConf = new ConnectionConfig();
-    auto ircAddress = getAddress(connectConf.address, connectConf.port);
-
     botConf = new BotConfig();
-    client.realName = botConf.realName;
-    client.userName = botConf.userName;
-    client.nickName = botConf.nickName;
-    client.connect(ircAddress.front);
 
+    setClientDetails();
+    clientConnect();
+    tracker = new IrcTracker(client);
+    
     foreach(string channel; botConf.channels) {
       client.join(channel);
     }
@@ -34,5 +34,16 @@ class TripleS {
     auto eventloop = new IrcEventLoop();
     eventloop.add(client);
     eventloop.run();
+  }
+
+  void setClientDetails() {
+    client.realName = botConf.realName;
+    client.userName = botConf.userName;
+    client.nickName = botConf.nickName;
+  }
+
+  void clientConnect() {
+    auto ircAddress = getAddress(connectConf.address, connectConf.port);
+    client.connect(ircAddress.front);
   }
 }
