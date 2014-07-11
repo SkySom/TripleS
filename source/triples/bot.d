@@ -1,7 +1,7 @@
 module triples.bot;
 
 import std.stdio;
-import std.socket : Socket;
+import std.socket;
 
 import irc.client;
 import irc.eventloop;
@@ -9,12 +9,18 @@ import irc.eventloop;
 
 class TripleS {
   this() {
-    writeln("Starting TripleS");
-    auto connection = new IrcClient();
-    auto ircAddress = new InternetAddress("irc.freenode.net", 6667);
-    connection.connect(ircAddress);
+    writeln("Starting");
+    auto client = new IrcClient();
+    auto ircAddress = new InternetAddress("", 0000);
+    client.realName = "";
+    client.userName = "";
+    client.nickName = "";
+    client.connect(ircAddress);
+    client.join("");
+    writeln(client.connected());
     auto eventloop = new IrcEventLoop();
-    eventloop.add(connection);
+    eventloop.add(client);
+    eventloop.run();
   }
 
 
