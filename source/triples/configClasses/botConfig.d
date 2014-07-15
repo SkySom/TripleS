@@ -1,8 +1,8 @@
-module triples.configClasses.botConfig;
+module triples.configclasses.botconfig;
 
 import std.json;
 
-import triples.configClasses.baseConfig;
+import triples.configclasses.baseconfig;
 
 class BotConfig : BaseConfig {
   string nickName;

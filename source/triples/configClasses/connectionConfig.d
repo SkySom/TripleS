@@ -1,9 +1,9 @@
-module triples.configClasses.connectionConfig;
+module triples.configclasses.connectionconfig;
 
 import std.conv;
 import std.json;
 
-import triples.configClasses.baseConfig;
+import triples.configclasses.baseconfig;
 
 class ConnectionConfig : BaseConfig {
   ushort port;

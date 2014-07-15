@@ -1,4 +1,4 @@
-module triples.configClasses.baseConfig;
+module triples.configclasses.baseconfig;
 
 import std.array;
 import std.file;

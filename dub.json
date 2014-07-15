@@ -4,6 +4,7 @@
 	"copyright": "Copyright © 2014, Skylar",
 	"authors": ["Skylar"],
 	"dependencies": {
-		"dirk": "~master"
+		"dirk": "~master",
+		"thrift": ">=1.0.0-dev-patch-20140326"
 	}
 }
