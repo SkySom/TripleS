@@ -5,6 +5,7 @@
 	"authors": ["Skylar"],
 	"dependencies": {
 		"dirk": "~master",
-		"thrift": ">=1.0.0-dev-patch-20140326"
-	}
+		"vibe-d": ">=0.7.20"
+	},
+	"versions": ["VibeDefaultMain"]
 }
