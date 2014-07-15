@@ -32,4 +32,5 @@ shared static this()
 private extern(C) void onSignal(int signal)
 nothrow {
 	logInfo("Received signal %d. I am shutting down.", signal);
+	exit(0);
 }

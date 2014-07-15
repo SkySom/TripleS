@@ -18,6 +18,7 @@ class TripleS {
 
   IrcClient client;
   IrcTracker tracker;
+  IrcEventLoop eventloop;
 
   this() {
     client = new IrcClient();
@@ -33,7 +34,7 @@ class TripleS {
       client.join(channel);
     }
 
-    auto eventloop = new IrcEventLoop();
+    eventloop = new IrcEventLoop();
     eventloop.add(client);
     eventloop.run();
   }
@@ -47,5 +48,9 @@ class TripleS {
   void clientConnect() {
     auto ircAddress = getAddress(connectConf.address, connectConf.port);
     client.connect(ircAddress.front);
+  }
+
+  public void shutdown() {
+    eventloop.remove(client);
   }
 }
