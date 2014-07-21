@@ -8,13 +8,11 @@ import irc.client;
 import irc.tracker;
 import irc.eventloop;
 
-import triples.configclasses.connectionconfig;
-import triples.configclasses.botconfig;
+import triples.configclasses.config;
 import triples.pluginhandler;
 
 class TripleS {
-  ConnectionConfig connectConf;
-  BotConfig botConf;
+  Config config;
 
   IrcClient client;
   IrcTracker tracker;
@@ -22,15 +20,14 @@ class TripleS {
 
   this() {
     client = new IrcClient();
-    connectConf = new ConnectionConfig();
-    botConf = new BotConfig();
+    config = new Config();
 
     setClientDetails();
     clientConnect();
     tracker = track(client);
     tracker.start();
 
-    foreach(string channel; botConf.channels) {
+    foreach(string channel; config.channels) {
       client.join(channel);
     }
 
@@ -40,13 +37,13 @@ class TripleS {
   }
 
   void setClientDetails() {
-    client.realName = botConf.realName;
-    client.userName = botConf.userName;
-    client.nickName = botConf.nickName;
+    client.realName = config.realName;
+    client.userName = config.userName;
+    client.nickName = config.nickName;
   }
 
   void clientConnect() {
-    auto ircAddress = getAddress(connectConf.address, connectConf.port);
+    auto ircAddress = getAddress(config.address, config.port);
     client.connect(ircAddress.front);
   }
 

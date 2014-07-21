@@ -1,0 +1,15 @@
+{
+  "bot" :{
+    "nickName" : "nickName",
+    "userName" : "userName",
+    "realName" : "realName",
+    "channels" : [
+      "##room1",
+      "##room2"
+    ]
+  },
+  "connection" : {
+    "port" : "0000",
+    "address" : "irc.com"
+  }
+}
