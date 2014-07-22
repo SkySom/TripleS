@@ -12,4 +12,5 @@
     "port" : "0000",
     "address" : "irc.com"
   }
+  // TODO: Add plugin definitions in config.
 }
