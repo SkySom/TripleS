@@ -10,3 +10,5 @@ dub.selections.json
 *.exe_cv
 
 config/*.json
+
+/triples
