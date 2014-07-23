@@ -1,6 +1,7 @@
 module triples.bot;
 
 import std.array;
+import std.conv;
 import std.stdio;
 import std.socket;
 
@@ -36,6 +37,8 @@ class TripleS {
       logger.info("Bot", "has joined " ~ channel);
 		}
 
+    client.onMessage ~= &onMessage;
+
 		// TODO: Pass messages into pluginManager.onMessage()
 		eventloop = new IrcEventLoop();
 		eventloop.add(client);
@@ -58,7 +61,13 @@ class TripleS {
     logger.info("Bot", "has connected to irc network");
 	}
 
-	public void shutdown() {
+	void shutdown() {
 		eventloop.remove(client);
 	}
+
+  void onMessage(IrcUser user, in char[] target, in char[] message) {
+    string infomessage = to!string(user.nickName ~ " has said \"" ~ message ~
+      "\" to " ~ target);
+    logger.info("Bot", infomessage);
+  }
 }
