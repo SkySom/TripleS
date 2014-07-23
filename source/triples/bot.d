@@ -1,7 +1,6 @@
 module triples.bot;
 
 import std.array;
-import std.logger;
 import std.stdio;
 import std.socket;
 
@@ -16,8 +15,6 @@ import triples.pluginhandler;
 class TripleS {
   Config config;
 
-  FileLogger fileLogger;
-
   IrcClient client;
   IrcTracker tracker;
   IrcEventLoop eventloop;
@@ -25,8 +22,7 @@ class TripleS {
   this() {
     client = new IrcClient();
     config = new Config();
-    fileLogger = BotLogger.getLogger();
-
+    
     setClientDetails();
     clientConnect();
     tracker = track(client);
@@ -34,7 +30,6 @@ class TripleS {
 
     foreach(string channel; config.channels) {
       client.join(channel);
-      BotLogger.log(channel);
     }
 
     eventloop = new IrcEventLoop();
