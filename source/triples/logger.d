@@ -27,7 +27,7 @@ class Logger {
   }
 
   void writeEntry(LogLevel level, string origin, string message) {
-    string log = "[" ~ Clock.currTime().toISOString() ~ "] [" ~ level
+    string log = "[" ~ Clock.currTime().toISOExtString() ~ "] [" ~ level
       ~ "] " ~ origin ~ ": " ~ message ~ "\n";
     append(fileLocation, log);
   }
