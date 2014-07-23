@@ -38,19 +38,19 @@ class Logger {
     writeEntry(LogLevel.DEBUG, origin, message);
   }
 
-  void info(string origin, string message) {
+  void logInfo(string origin, string message) {
     writeEntry(LogLevel.INFO, origin, message);
   }
 
-  void warning(string origin, string message) {
+  void logWarning(string origin, string message) {
     writeEntry(LogLevel.WARNING, origin, message);
   }
 
-  void error(string origin, string message) {
+  void logError(string origin, string message) {
     writeEntry(LogLevel.ERROR, origin, message);
   }
 
-  void fatal(string origin, string message) {
+  void logFatal(string origin, string message) {
     writeEntry(LogLevel.FATAL, origin, message);
   }
 }

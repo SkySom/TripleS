@@ -34,7 +34,7 @@ class TripleS {
 
 		foreach(string channel; config.channels) {
 			client.join(channel);
-      logger.info("Bot", "has joined " ~ channel);
+      logger.logInfo("Bot", "has joined " ~ channel);
 		}
 
     client.onMessage ~= &onMessage;
@@ -58,7 +58,7 @@ class TripleS {
 	void clientConnect() {
 		auto ircAddress = getAddress(config.address, config.port);
 		client.connect(ircAddress.front);
-    logger.info("Bot", "has connected to irc network");
+    logger.logInfo("Bot", "has connected to irc network");
 	}
 
 	void shutdown() {
@@ -68,6 +68,6 @@ class TripleS {
   void onMessage(IrcUser user, in char[] target, in char[] message) {
     string infomessage = to!string(user.nickName ~ " has said \"" ~ message ~
       "\" to " ~ target);
-    logger.info("Bot", infomessage);
+    logger.logInfo("Bot", infomessage);
   }
 }
