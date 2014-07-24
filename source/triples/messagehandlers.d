@@ -7,16 +7,22 @@ import irc.client;
 
 import triples.logger;
 import triples.message;
+import triples.pluginclasses.pluginmanager;
 
 class MessageHandler {
     Logger logger;
+    PluginManager pluginManager;
 
     this() {
         logger = new Logger("logs/messagehandler.log");
     }
 
-    this(Logger log) {
-        logger = log;
+    this(Logger logger) {
+        this.logger = logger;
+    }
+
+    void setPluginManager(PluginManager pluginManager) {
+        this.pluginManager = pluginManager;
     }
 
     // Used from:

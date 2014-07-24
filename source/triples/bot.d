@@ -49,6 +49,7 @@ class TripleS {
 
 	void setPluginManager(PluginManager pluginManager) {
 		this.pluginManager = pluginManager;
+		messageHandler.setPluginManager(pluginManager);
 	}
 
 	void setClientDetails() {
