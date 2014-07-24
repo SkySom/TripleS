@@ -39,7 +39,19 @@ class MessageHandler {
         onKick,
         onNameList,
         onNameListEnd,
-        onCtcpQuery
+        onCtcpQuery,
+        onCtcpReply,
+        onNickInUse,
+        onTopic,
+        onTopicInfo,
+        onUserhostReply,
+        onWhoisReply,
+        onWhoisServerReply,
+        onWhoisOperatorReply,
+        onWhoisIdleReply,
+        onWhoisChannelsReply,
+        onWhoisAccountReply,
+        onWhoisEnd
 	);
 
     IrcClient setMessageHandlers(IrcClient client) {
@@ -100,6 +112,54 @@ class MessageHandler {
     }
 
     void onCtcpQuery(IrcUser user, in char[] source, in char[] tag, in char[] data) {
+
+    }
+
+    void onCtcpReply(IrcUser user, in char[] source, in char[] tag, in char[] data) {
+
+    }
+
+    const(char)[] onNickInUse(in char[] newNick) {
+        return newNick ~ "_";
+    }
+
+    void onTopic(in char[] channel, in char[] topic) {
+
+    }
+
+    void onTopicInfo(in char[] channel, in char[] nick, in char[] time) {
+
+    }
+
+    void onUserhostReply(in IrcUser[] users) {
+
+    }
+
+    void onWhoisReply(IrcUser userInfo, in char[] realName) {
+
+    }
+
+    void onWhoisServerReply(in char[] nick, in char[] serverHostName, in char[] serverInfo) {
+
+    }
+
+    void onWhoisOperatorReply(in char[] nick) {
+
+    }
+
+    void onWhoisIdleReply(in char[] nick, int idleTime) {
+
+    }
+
+    void onWhoisChannelsReply(in char[] nick, in char[][] channels) {
+
+    }
+
+    void onWhoisAccountReply(in char[] nick, in char[] accountName) {
+
+    }
+
+    void onWhoisEnd(in char[] nick) {
 
     }
 }
