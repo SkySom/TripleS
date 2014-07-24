@@ -12,5 +12,10 @@ struct Message {
 	string from;
 	string to;
 	string message;
-	bool incoming;
+	Direction direction;
+}
+
+enum Direction {
+	INCOMING,
+	OUTGOING
 }
