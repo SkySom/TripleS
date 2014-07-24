@@ -16,7 +16,7 @@ import triples.configclasses.config;
 class TripleS {
 	Config config;
 	PluginManager pluginManager;
-  Logger logger;
+	Logger logger;
 
 	IrcClient client;
 	IrcTracker tracker;
@@ -25,7 +25,7 @@ class TripleS {
 	this() {
 		client = new IrcClient();
 		config = new Config();
-    logger = new Logger("logs/bot.log");
+		logger = new Logger("logs/bot.log");
 
 		setClientDetails();
 		clientConnect();
@@ -34,10 +34,10 @@ class TripleS {
 
 		foreach(string channel; config.channels) {
 			client.join(channel);
-      logger.logInfo("Bot", "has joined " ~ channel);
+    		logger.logInfo("Bot", "has joined " ~ channel);
 		}
 
-    client.onMessage ~= &onMessage;
+		client.onMessage ~= &onMessage;
 
 		// TODO: Pass messages into pluginManager.onMessage()
 		eventloop = new IrcEventLoop();
@@ -58,16 +58,16 @@ class TripleS {
 	void clientConnect() {
 		auto ircAddress = getAddress(config.address, config.port);
 		client.connect(ircAddress.front);
-    logger.logInfo("Bot", "has connected to irc network");
+		logger.logInfo("Bot", "has connected to irc network");
 	}
 
 	void shutdown() {
 		eventloop.remove(client);
 	}
 
-  void onMessage(IrcUser user, in char[] target, in char[] message) {
-    string infomessage = to!string(user.nickName ~ " has said \"" ~ message ~
-      "\" to " ~ target);
-    logger.logInfo("Bot", infomessage);
-  }
+	void onMessage(IrcUser user, in char[] target, in char[] message) {
+		string infomessage = to!string(user.nickName ~ " has said \"" ~ message ~
+    		"\" to " ~ target);
+		logger.logInfo("Bot", infomessage);
+	}
 }

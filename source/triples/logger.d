@@ -5,52 +5,52 @@ import std.string;
 import std.file;
 
 class Logger {
-  string fileLocation;
+    string fileLocation;
 
-  this() {
-    this("logs/log.log");
-  }
-
-  this(string path) {
-    fileLocation = path;
-    if(!path.exists()) {
-      write(path, "");
+    this() {
+        this("logs/log.log");
     }
-  }
 
-  enum LogLevel : string {
-    DEBUG = "DBUG",
-    INFO = "INFO",
-    WARNING = "WARN",
-    ERROR = "ERRR",
-    FATAL = "FATL"
-  }
+    this(string path) {
+        fileLocation = path;
+        if(!path.exists()) {
+            write(path, "");
+        }
+    }
 
-  void writeEntry(LogLevel level, string origin, string message) {
-    SysTime time = Clock.currTime();
-    time.fracSec(FracSec.zero());
-    string log = "[" ~ time.toISOExtString() ~ "] [" ~ level
-      ~ "] " ~ origin ~ ": " ~ message ~ "\n";
-    append(fileLocation, log);
-  }
+    enum LogLevel : string {
+        DEBUG = "DBUG",
+        INFO = "INFO",
+        WARNING = "WARN",
+        ERROR = "ERRR",
+        FATAL = "FATL"
+    }
 
-  void logDebug(string origin, string message) {
-    writeEntry(LogLevel.DEBUG, origin, message);
-  }
+    void writeEntry(LogLevel level, string origin, string message) {
+        SysTime time = Clock.currTime();
+        time.fracSec(FracSec.zero());
+        string log = "[" ~ time.toISOExtString() ~ "] [" ~ level
+            ~ "] " ~ origin ~ ": " ~ message ~ "\n";
+        append(fileLocation, log);
+    }
 
-  void logInfo(string origin, string message) {
-    writeEntry(LogLevel.INFO, origin, message);
-  }
+    void logDebug(string origin, string message) {
+        writeEntry(LogLevel.DEBUG, origin, message);
+    }
 
-  void logWarning(string origin, string message) {
-    writeEntry(LogLevel.WARNING, origin, message);
-  }
+    void logInfo(string origin, string message) {
+        writeEntry(LogLevel.INFO, origin, message);
+    }
 
-  void logError(string origin, string message) {
-    writeEntry(LogLevel.ERROR, origin, message);
-  }
+    void logWarning(string origin, string message) {
+        writeEntry(LogLevel.WARNING, origin, message);
+    }
 
-  void logFatal(string origin, string message) {
-    writeEntry(LogLevel.FATAL, origin, message);
-  }
+    void logError(string origin, string message) {
+        writeEntry(LogLevel.ERROR, origin, message);
+    }
+
+    void logFatal(string origin, string message) {
+        writeEntry(LogLevel.FATAL, origin, message);
+    }
 }
