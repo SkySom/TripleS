@@ -64,7 +64,6 @@ class TripleS {
 	void clientConnect() {
 		auto ircAddress = getAddress(config.address, config.port);
 		client.connect(ircAddress.front);
-		logger.logInfo("Bot", "has connected to irc network");
 	}
 
 	void shutdown() {

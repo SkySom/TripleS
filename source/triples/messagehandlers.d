@@ -20,7 +20,12 @@ class MessageHandler {
 
     IrcClient setMessageHandlers(IrcClient client) {
         client.onMessage ~= &onMessage;
+        client.onConnect ~= &onConnect;
         return client;
+    }
+
+    void onConnect() {
+        logger.logInfo("Bot", "Has successfully connected");
     }
 
     void onMessage(IrcUser user, in char[] target, in char[] message) {
