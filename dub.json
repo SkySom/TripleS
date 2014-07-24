@@ -1,8 +1,9 @@
 {
 	"name": "triples",
-	"description": "A minimal D application.",
-	"copyright": "Copyright © 2014, Skylar",
-	"authors": ["Skylar"],
+	"description": "An extensible D IRC bot.",
+	"copyright": "Copyright © 2014 TripleS Contributors",
+	"license": "MIT",
+	"authors": ["SkySom", "coreymatyas", "cmhull42"],
 	"dependencies": {
 		"dirk": "~master"
 	}
