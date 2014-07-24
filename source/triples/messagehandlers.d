@@ -31,7 +31,15 @@ class MessageHandler {
 		onConnect,
         onMessage,
         onNotice,
-        onNickChange
+        onNickChange,
+        onSuccessfulJoin,
+        onJoin,
+        onPart,
+        onQuit,
+        onKick,
+        onNameList,
+        onNameListEnd,
+        onCtcpQuery
 	);
 
     IrcClient setMessageHandlers(IrcClient client) {
@@ -63,4 +71,35 @@ class MessageHandler {
 
     }
 
+    void onSuccessfulJoin(in char[] channel) {
+
+    }
+
+    void onJoin(IrcUser user, in char[] channel) {
+
+    }
+
+    void onPart(IrcUser user, in char[] channel) {
+
+    }
+
+    void onQuit(IrcUser user, in char[] comment) {
+
+    }
+
+    void onKick(IrcUser kicker, in char[] channel, in char[] kickedNick, in char[] comment) {
+
+    }
+
+    void onNameList(in char[] channel, in char[][] nickNames) {
+
+    }
+
+    void onNameListEnd(in char[] channel) {
+
+    }
+
+    void onCtcpQuery(IrcUser user, in char[] source, in char[] tag, in char[] data) {
+
+    }
 }
