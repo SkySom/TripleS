@@ -29,7 +29,9 @@ class MessageHandler {
     // https://github.com/JakobOvrum/Dirk/blob/master/irc/tracker.d#L306
     alias Handlers = TypeTuple!(
 		onConnect,
-        onMessage
+        onMessage,
+        onNotice,
+        onNickChange
 	);
 
     IrcClient setMessageHandlers(IrcClient client) {
@@ -50,4 +52,15 @@ class MessageHandler {
             "\" to " ~ target);
         logger.logInfo("Bot", infomessage);
     }
+
+    void onNotice(IrcUser user, in char[] target, in char[] message) {
+        string infomessage = to!string(user.nickName ~ " has said \"" ~ message ~
+            "\" to " ~ target);
+        logger.logInfo("Bot", infomessage);
+    }
+
+    void onNickChange(IrcUser user, in char[] newNick) {
+
+    }
+
 }
