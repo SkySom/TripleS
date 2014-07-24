@@ -1,6 +1,7 @@
 module triples.messagehandlers;
 
 import std.conv;
+import std.typetuple;
 
 import irc.client;
 
@@ -18,9 +19,19 @@ class MessageHandler {
         logger = log;
     }
 
+    // Used from:
+    // https://github.com/JakobOvrum/Dirk/blob/master/irc/tracker.d#L306
+    alias Handlers = TypeTuple!(
+		onConnect,
+        onMessage
+	);
+
     IrcClient setMessageHandlers(IrcClient client) {
-        client.onMessage ~= &onMessage;
-        client.onConnect ~= &onConnect;
+        // Used from:
+        // https://github.com/JakobOvrum/Dirk/blob/master/irc/tracker.d#L350
+        foreach(handler; Handlers) {
+			mixin("client." ~ __traits(identifier, handler)) ~= &handler;
+        }
         return client;
     }
 
