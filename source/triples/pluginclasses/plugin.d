@@ -1,9 +1,9 @@
-module triples.plugin;
+module triples.pluginclasses.plugin;
 
 import std.container;
 
 import triples.message;
-import triples.permission;
+import triples.permissions.permission;
 
 class Plugin {
 	string name;

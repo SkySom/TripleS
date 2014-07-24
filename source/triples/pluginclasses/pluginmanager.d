@@ -1,9 +1,9 @@
-module triples.pluginmanager;
+module triples.pluginclasses.pluginmanager;
 
 import triples.bot;
 import triples.message;
-import triples.permission;
-import triples.plugin;
+import triples.permissions.permission;
+import triples.pluginclasses.plugin;
 
 class PluginManager {
 	TripleS bot;

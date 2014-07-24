@@ -1,4 +1,4 @@
-module triples.permission;
+module triples.permissions.permission;
 
 import triples.message;
 

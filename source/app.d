@@ -1,7 +1,7 @@
 import std.stdio;
 
 import triples.bot;
-import triples.pluginmanager;
+import triples.pluginclasses.pluginmanager;
 
 void main() {
 	auto bot = new TripleS();

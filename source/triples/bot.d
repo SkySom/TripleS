@@ -9,9 +9,9 @@ import irc.client;
 import irc.tracker;
 import irc.eventloop;
 
-import triples.pluginmanager;
 import triples.logger;
 import triples.configclasses.config;
+import triples.pluginclasses.pluginmanager;
 
 class TripleS {
 	Config config;
