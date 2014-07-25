@@ -1,6 +1,7 @@
 module triples.messagehandlers;
 
 import std.conv;
+import std.traits;
 import std.typetuple;
 
 import irc.client;
@@ -25,10 +26,8 @@ class MessageHandler {
         this.pluginManager = pluginManager;
     }
 
-    // Used from:
-    // https://github.com/JakobOvrum/Dirk/blob/master/irc/tracker.d#L306
-    alias Handlers = TypeTuple!(
-		onConnect,
+    enum Handlers {
+        onConnect,
         onMessage,
         onNotice,
         onNickChange,
@@ -41,24 +40,22 @@ class MessageHandler {
         onNameListEnd,
         onCtcpQuery,
         onCtcpReply,
-        onNickInUse,
+	    onNickInUse,
         onTopic,
         onTopicInfo,
         onUserhostReply,
-        onWhoisReply,
-        onWhoisServerReply,
-        onWhoisOperatorReply,
-        onWhoisIdleReply,
-        onWhoisChannelsReply,
-        onWhoisAccountReply,
-        onWhoisEnd
-	);
+	    onWhoisReply,
+	    onWhoisServerReply,
+	    onWhoisOperatorReply,
+	    onWhoisIdleReply,
+	    onWhoisChannelsReply,
+	    onWhoisAccountReply,
+	    onWhoisEnd
+    };
 
     IrcClient setMessageHandlers(IrcClient client) {
-        // Used from:
-        // https://github.com/JakobOvrum/Dirk/blob/master/irc/tracker.d#L350
-        foreach(handler; Handlers) {
-			mixin("client." ~ __traits(identifier, handler)) ~= &handler;
+        foreach (immutable handler; EnumMembers!Handlers) {
+            mixin("client." ~ to!string(handler)) ~= &(__traits(getMember, this, to!string(handler)));
         }
         return client;
     }
