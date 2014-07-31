@@ -5,6 +5,7 @@
 	"license": "MIT",
 	"authors": ["SkySom", "coreymatyas", "cmhull42"],
 	"dependencies": {
-		"dirk": "~master"
+		"dirk": "~master",
+		"stalkd": "~master"
 	}
 }
