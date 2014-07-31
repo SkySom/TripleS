@@ -10,4 +10,6 @@ void main() {
 	// TODO: Consider decoupling PluginManager and Bot
 	bot.setPluginManager(pluginManager);
 	pluginManager.setBot(bot);
+
+	pluginManager.start();
 }
